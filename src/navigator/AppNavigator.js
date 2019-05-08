@@ -1,8 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
-import PropTypes from "prop-types"
-import { createStackNavigator } from "react-navigation"
-import { Home, Login } from "@pages"
+import { createStackNavigator, createSwitchNavigator } from "react-navigation"
+import { Home, Login, Registration } from "@pages"
 import {
   createReduxContainer,
   createReactNavigationReduxMiddleware,
@@ -14,8 +13,13 @@ const noHeaderStyle = {
   cardStyle: { backgroundColor: "white" }
 }
 
-export const AppNavigator = createStackNavigator({
+export const Authentication = createStackNavigator({
   Login: { screen: Login.LoginPage },
+  Registration: { screen: Registration.RegistrationPage }
+})
+
+export const AppNavigator = createSwitchNavigator({
+  Authentication: { screen: Authentication },
   Home: { screen: Home.HomePage }
 })
 

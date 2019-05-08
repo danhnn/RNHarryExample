@@ -16,14 +16,15 @@ import {
   BaseTextInput
 } from "@shares"
 
-type Props = {}
-class LoginPage extends BaseContainer<Props> {
-  state = { username: null, password: null }
+class RegistrationPage extends BaseContainer {
+  state = { username: null, password: null, retypePassword: null }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to Harry Example App!!!</Text>
+        <Text style={styles.welcome}>
+          Please provide those information to complete registration process
+        </Text>
 
         <BaseTextInput
           style={styles.inputStyle}
@@ -44,20 +45,26 @@ class LoginPage extends BaseContainer<Props> {
           }
         />
 
-        <Button
-          title="Login"
-          onPress={() => {
-            this.props.login(this.state.username, this.state.password)
-          }}
+        <BaseTextInput
+          placeholder="Retype Password"
+          style={styles.inputStyle}
+          secureTextEntry={true}
+          value={this.state.password}
+          onChangeText={value =>
+            this.setState({ ...this.state, retypePassword: value })
+          }
         />
 
         <Button
-          title="Registration"
+          title="Register"
           onPress={() => {
-            this.props.goToRegistrationPage()
+            this.props.register(
+              this.state.username,
+              this.state.password,
+              this.state.retypePassword
+            )
           }}
         />
-
         <CommonAlertPopup
           title="Welcome to React Native Skeleton Project"
           isShow={false}
@@ -68,8 +75,8 @@ class LoginPage extends BaseContainer<Props> {
   }
 }
 
-LoginPage.navigationOptions = {
-  title: "Login Page"
+RegistrationPage.navigationOptions = {
+  title: "Registration Page"
 }
 
 const styles = StyleSheet.create({
@@ -90,20 +97,21 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state, ownProps) => {
-  return state.loginReducer
+  return state.registrationReducer
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   const { goBack } = ownProps.navigation
   return {
-    login: (username, password) =>
-      dispatch({ type: "LOGIN_ACTION", payload: { username, password } }),
-    goToHome: () => dispatch({ type: "NAV_HOME" }),
-    goToRegistrationPage: () => dispatch({ type: "NAV_REGISTRATION" })
+    register: (username, password, retypePassword) =>
+      dispatch({
+        type: "REGISTER_ACTION",
+        payload: { username, password, retypePassword }
+      })
   }
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LoginPage)
+)(RegistrationPage)

@@ -1,33 +1,38 @@
-
-import { AppNavigator } from './AppNavigator';
-import { NavigationActions } from "react-navigation";
+import { AppNavigator } from "./AppNavigator"
+import { NavigationActions } from "react-navigation"
 
 let initNavState = AppNavigator.router.getStateForAction(
   NavigationActions.init()
-);
+)
 
 export default (state = initNavState, action) => {
-  let nextState;
+  let nextState
   switch (action.type) {
-
-    case 'NAV_LOGIN':
+    case "NAV_LOGIN":
       nextState = AppNavigator.router.getStateForAction(
-        NavigationActions.navigate({ routeName: 'Login' }),
+        NavigationActions.navigate({ routeName: "Login" }),
         state
-      );
-      break;
+      )
+      break
 
-    case 'NAV_HOME':
+    case "NAV_HOME":
       nextState = AppNavigator.router.getStateForAction(
-        NavigationActions.navigate({ routeName: 'Home' }),
+        NavigationActions.navigate({ routeName: "Home" }),
         state
-      );
-      break;
+      )
+      break
+
+    case "NAV_REGISTRATION":
+      nextState = AppNavigator.router.getStateForAction(
+        NavigationActions.navigate({ routeName: "Registration" }),
+        state
+      )
+      break
 
     default:
-      nextState = AppNavigator.router.getStateForAction(action, state);
-      break;
+      nextState = AppNavigator.router.getStateForAction(action, state)
+      break
   }
   // Simply return the original `state` if `nextState` is null or undefined.
-  return nextState || state;
-};
+  return nextState || state
+}

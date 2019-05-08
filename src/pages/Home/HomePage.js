@@ -9,8 +9,7 @@ import { connect } from "react-redux"
 import { Platform, StyleSheet, Text, View, Button } from "react-native"
 import { BaseContainer } from "@shares"
 
-type Props = {}
-class HomePage extends BaseContainer<Props> {
+class HomePage extends BaseContainer {
   componentDidMount() {
     this.props.getHomeContent()
   }
