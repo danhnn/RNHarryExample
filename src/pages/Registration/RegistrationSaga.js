@@ -7,7 +7,7 @@ function* registrationWatchWorker(action) {
     yield delay(2000)
     yield put({ type: "REGISTRATION_SHOW_LOADING", payload: false })
     yield delay(200)
-    yield put({ type: "NAV_HOME" })
+    yield put({ type: "NAV_MAIN" })
   } catch (error) {
     console.log(error)
     yield put({ type: "REGISTRATION_SHOW_LOADING", payload: false })

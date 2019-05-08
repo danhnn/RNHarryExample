@@ -1,9 +1,5 @@
-import HomePage from './HomePage';
-import HomepageReducer from './HomepageReducer';
-import HomepageSaga from './HomepageSaga';
+import HomePage from "./HomePage"
 
 export default {
-  HomePage,
-  HomepageSaga,
-  HomepageReducer
+  HomePage
 }

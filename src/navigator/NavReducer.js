@@ -22,6 +22,20 @@ export default (state = initNavState, action) => {
       )
       break
 
+    case "NAV_SETTING":
+      nextState = AppNavigator.router.getStateForAction(
+        NavigationActions.navigate({ routeName: "Setting" }),
+        state
+      )
+      break
+
+    case "NAV_MAIN":
+      nextState = AppNavigator.router.getStateForAction(
+        NavigationActions.navigate({ routeName: "Main" }),
+        state
+      )
+      break
+
     case "NAV_REGISTRATION":
       nextState = AppNavigator.router.getStateForAction(
         NavigationActions.navigate({ routeName: "Registration" }),

@@ -5,22 +5,21 @@
  */
 
 import React, { Component } from "react"
-import { connect } from "react-redux"
-import { Platform, StyleSheet, Text, View, Button } from "react-native"
+import { StyleSheet, Text, View } from "react-native"
 import { BaseContainer } from "@shares"
 
-export default class HomePage extends BaseContainer {
+export default class ActivityPage extends BaseContainer {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Welcome To HomePage</Text>
+        <Text>Welcome to Activity Page</Text>
       </View>
     )
   }
 }
 
-HomePage.navigationOptions = {
-  title: "Home"
+ActivityPage.navigationOptions = {
+  title: "Activity"
 }
 
 const styles = StyleSheet.create({
