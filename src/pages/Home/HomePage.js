@@ -10,11 +10,12 @@ import { Platform, StyleSheet, View, Button } from "react-native"
 import { BaseContainer, BaseText, showToast } from "@shares"
 import { colors } from "@styles"
 
-export default class HomePage extends BaseContainer {
+class HomePage extends BaseContainer {
   render() {
+    const { user } = this.props
     return (
       <View style={styles.container}>
-        <BaseText>Welcome To HomePage</BaseText>
+        <BaseText>Welcome {user.userInfo.username}</BaseText>
         <Button
           title="Show Toasts"
           onPress={() => {
@@ -38,3 +39,14 @@ const styles = StyleSheet.create({
     backgroundColor: colors.BACKGROUND
   }
 })
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  null
+)(HomePage)
