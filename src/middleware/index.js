@@ -9,7 +9,6 @@ import createSagaMiddleware from "redux-saga"
 import thunk from "redux-thunk"
 import { PersistGate } from "redux-persist/integration/react"
 import { reactNavigationMiddleware } from "@navigator"
-import { View } from "react-native"
 import { composeWithDevTools } from "redux-devtools-extension"
 
 const persistConfig = {

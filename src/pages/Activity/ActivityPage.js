@@ -4,15 +4,16 @@
  * @flow
  */
 
-import React, { Component } from "react"
+import React from "react"
 import { StyleSheet, Text, View } from "react-native"
-import { BaseContainer } from "@shares"
+import { BaseContainer, BaseText } from "@shares"
+import { colors } from "@styles"
 
 export default class ActivityPage extends BaseContainer {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Welcome to Activity Page</Text>
+        <BaseText>Welcome to Activity Page</BaseText>
       </View>
     )
   }
@@ -27,6 +28,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    backgroundColor: colors.BACKGROUND
   }
 })

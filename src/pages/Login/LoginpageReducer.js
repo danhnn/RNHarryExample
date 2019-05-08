@@ -1,12 +1,14 @@
+import { Const } from "@shares"
+
 const INITIAL_STATE = {
-  showLoading: false,
+  showLoading: false
 }
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'LOGIN_SHOW_LOADING':
-      return {...state, showLoading: action.payload};
+    case Const.LOGIN_SHOW_LOADING:
+      return { ...state, showLoading: action.payload }
     default:
-      return state;
+      return state
   }
 }

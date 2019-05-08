@@ -23,8 +23,13 @@ export default class InProcessPopup extends PureComponent {
         }}
       >
         <View style={styles.container}>
-          <BaseText style={{ color: "white" }}>{title}</BaseText>
-          <Spinner isVisible={true} color="white" size={30} type="Wave" />
+          <BaseText style={{ color: colors.WHITE }}>{title}</BaseText>
+          <Spinner
+            isVisible={true}
+            color={colors.WHITE}
+            size={30}
+            type="Wave"
+          />
         </View>
       </PopupDialog>
     )

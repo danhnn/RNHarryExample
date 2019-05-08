@@ -2,7 +2,7 @@ export const BLUE = "#00395d"
 export const GRAY = "#4f5051"
 export const WHITE = "#ffffff"
 export const LIGHT_GRAY = "#eaeaea"
-
+export const BACKGROUND = "#F5FCFF"
 // COLOR PALLET:
 export const BLACK_COLOR = "#37393a"
 export const ORANGE_COLOR = "#ee8a4e"

@@ -12,8 +12,10 @@ import {
   CommonAlertPopup,
   InProcessPopup,
   BaseText,
-  BaseTextInput
+  BaseTextInput,
+  Const
 } from "@shares"
+import { colors } from "@styles"
 
 class LoginPage extends BaseContainer {
   state = { username: null, password: null }
@@ -85,14 +87,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    backgroundColor: colors.BACKGROUND
   },
   inputStyle: {
     paddingLeft: 10,
     width: 300,
     height: 40,
     margin: 10,
-    borderColor: "gray",
+    borderColor: colors.GRAY,
     borderWidth: 1
   }
 })
@@ -108,9 +110,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { goBack } = ownProps.navigation
   return {
     login: (username, password) =>
-      dispatch({ type: "LOGIN_ACTION", payload: { username, password } }),
-    goToMainPage: () => dispatch({ type: "NAV_MAIN" }),
-    goToRegistrationPage: () => dispatch({ type: "NAV_REGISTRATION" })
+      dispatch({ type: Const.LOGIN_ACTION, payload: { username, password } }),
+    goToMainPage: () => dispatch({ type: Const.NAV_MAIN }),
+    goToRegistrationPage: () => dispatch({ type: Const.NAV_REGISTRATION })
   }
 }
 

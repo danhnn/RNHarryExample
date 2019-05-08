@@ -1,5 +1,6 @@
 import { AppNavigator } from "./AppNavigator"
 import { NavigationActions } from "react-navigation"
+import { Const } from "@shares"
 
 let initNavState = AppNavigator.router.getStateForAction(
   NavigationActions.init()
@@ -8,35 +9,35 @@ let initNavState = AppNavigator.router.getStateForAction(
 export default (state = initNavState, action) => {
   let nextState
   switch (action.type) {
-    case "NAV_LOGIN":
+    case Const.NAV_LOGIN:
       nextState = AppNavigator.router.getStateForAction(
         NavigationActions.navigate({ routeName: "Login" }),
         state
       )
       break
 
-    case "NAV_HOME":
+    case Const.NAV_HOME:
       nextState = AppNavigator.router.getStateForAction(
         NavigationActions.navigate({ routeName: "Home" }),
         state
       )
       break
 
-    case "NAV_SETTING":
+    case Const.NAV_SETTING:
       nextState = AppNavigator.router.getStateForAction(
         NavigationActions.navigate({ routeName: "Setting" }),
         state
       )
       break
 
-    case "NAV_MAIN":
+    case Const.NAV_MAIN:
       nextState = AppNavigator.router.getStateForAction(
         NavigationActions.navigate({ routeName: "Main" }),
         state
       )
       break
 
-    case "NAV_REGISTRATION":
+    case Const.NAV_REGISTRATION:
       nextState = AppNavigator.router.getStateForAction(
         NavigationActions.navigate({ routeName: "Registration" }),
         state

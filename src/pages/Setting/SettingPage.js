@@ -8,6 +8,8 @@ import React, { Component } from "react"
 import { StyleSheet, View, Button } from "react-native"
 import { BaseContainer, BaseText } from "@shares"
 import { connect } from "react-redux"
+import { colors } from "@styles"
+
 class SettingPage extends BaseContainer {
   render() {
     const { logout } = this.props
@@ -35,7 +37,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    backgroundColor: colors.BACKGROUND
   }
 })
 

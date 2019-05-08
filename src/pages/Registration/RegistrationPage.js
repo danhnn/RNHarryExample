@@ -12,8 +12,10 @@ import {
   CommonAlertPopup,
   InProcessPopup,
   BaseText,
-  BaseTextInput
+  BaseTextInput,
+  Const
 } from "@shares"
+import { colors } from "@styles"
 
 class RegistrationPage extends BaseContainer {
   state = { username: null, password: null, retypePassword: null }
@@ -48,7 +50,7 @@ class RegistrationPage extends BaseContainer {
           placeholder="Retype Password"
           style={styles.inputStyle}
           secureTextEntry={true}
-          value={this.state.password}
+          value={this.state.retypePassword}
           onChangeText={value =>
             this.setState({ ...this.state, retypePassword: value })
           }
@@ -83,14 +85,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    backgroundColor: colors.BACKGROUND
   },
   inputStyle: {
     paddingLeft: 10,
     width: 300,
     height: 40,
     margin: 10,
-    borderColor: "gray",
+    borderColor: colors.GRAY,
     borderWidth: 1
   }
 })
@@ -100,11 +102,10 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const { goBack } = ownProps.navigation
   return {
     register: (username, password, retypePassword) =>
       dispatch({
-        type: "REGISTER_ACTION",
+        type: Const.REGISTER_ACTION,
         payload: { username, password, retypePassword }
       })
   }

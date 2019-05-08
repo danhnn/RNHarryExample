@@ -5,6 +5,7 @@ import CommonAlertPopup from "./CommonAlertPopup"
 import CommonAlertPopupNoButton from "./CommonAlertPopupNoButton"
 import InProcessPopup from "./InProcessPopup"
 import UserReducer from "./reducers/UserReducer"
+import Const from "./Const"
 
 export {
   BaseContainer,
@@ -13,5 +14,6 @@ export {
   CommonAlertPopup,
   CommonAlertPopupNoButton,
   InProcessPopup,
-  UserReducer
+  UserReducer,
+  Const
 }

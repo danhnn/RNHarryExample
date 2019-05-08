@@ -76,13 +76,13 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   textStyle: {
-    color: "white",
+    color: colors.WHITE,
     padding: 10
   },
   buttonStyle: {
     fontSize: 16,
     fontWeight: "bold",
     margin: 10,
-    color: "white"
+    color: colors.WHITE
   }
 })

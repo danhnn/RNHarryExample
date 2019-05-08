@@ -8,6 +8,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { Platform, StyleSheet, Text, View, Button } from "react-native"
 import { BaseContainer } from "@shares"
+import { colors } from "@styles"
 
 export default class HomePage extends BaseContainer {
   render() {
@@ -28,6 +29,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    backgroundColor: colors.BACKGROUND
   }
 })
