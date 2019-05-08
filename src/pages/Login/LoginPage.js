@@ -4,26 +4,34 @@
  * @flow
  */
 
-import React, { Component } from "react"
+import React from "react"
 import { connect } from "react-redux"
-import { Platform, StyleSheet, Text, View, Button } from "react-native"
+import { StyleSheet, Text, View, Button } from "react-native"
 import {
   BaseContainer,
   CommonAlertPopup,
-  CommonAlertPopupNoButton,
   InProcessPopup,
   BaseText,
   BaseTextInput
 } from "@shares"
 
-type Props = {}
-class LoginPage extends BaseContainer<Props> {
+class LoginPage extends BaseContainer {
   state = { username: null, password: null }
 
+  componentDidMount() {
+    const { user, goToMainPage } = this.props
+    if (user.userInfo) {
+      goToMainPage()
+    }
+  }
+
   render() {
+    const { showLoading } = this.props
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to Harry Example App!!!</Text>
+        <BaseText style={styles.welcome}>
+          Welcome to Harry Example App!!!
+        </BaseText>
 
         <BaseTextInput
           style={styles.inputStyle}
@@ -62,7 +70,7 @@ class LoginPage extends BaseContainer<Props> {
           title="Welcome to React Native Skeleton Project"
           isShow={false}
         />
-        <InProcessPopup isShow={this.props.showLoading} title="Loading..." />
+        <InProcessPopup isShow={showLoading} title="Loading..." />
       </View>
     )
   }
@@ -90,7 +98,10 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state, ownProps) => {
-  return state.loginReducer
+  return {
+    showLoading: state.loginReducer.showLoading,
+    user: state.user
+  }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -98,7 +109,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     login: (username, password) =>
       dispatch({ type: "LOGIN_ACTION", payload: { username, password } }),
-    goToHome: () => dispatch({ type: "NAV_HOME" }),
+    goToMainPage: () => dispatch({ type: "NAV_MAIN" }),
     goToRegistrationPage: () => dispatch({ type: "NAV_REGISTRATION" })
   }
 }

@@ -5,14 +5,22 @@
  */
 
 import React, { Component } from "react"
-import { StyleSheet, Text, View } from "react-native"
-import { BaseContainer } from "@shares"
-
-export default class SettingPage extends BaseContainer {
+import { StyleSheet, View, Button } from "react-native"
+import { BaseContainer, BaseText } from "@shares"
+import { connect } from "react-redux"
+class SettingPage extends BaseContainer {
   render() {
+    const { logout } = this.props
     return (
       <View style={styles.container}>
-        <Text>Welcome to Setting Page</Text>
+        <BaseText>Welcome to Setting Page</BaseText>
+
+        <Button
+          title="Logout"
+          onPress={() => {
+            logout()
+          }}
+        />
       </View>
     )
   }
@@ -30,3 +38,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5FCFF"
   }
 })
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    logout: () => dispatch({ type: "LOGOUT_ACTION" })
+  }
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(SettingPage)

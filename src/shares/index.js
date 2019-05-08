@@ -4,6 +4,7 @@ import BaseTextInput from "./BaseTextInput"
 import CommonAlertPopup from "./CommonAlertPopup"
 import CommonAlertPopupNoButton from "./CommonAlertPopupNoButton"
 import InProcessPopup from "./InProcessPopup"
+import UserReducer from "./reducers/UserReducer"
 
 export {
   BaseContainer,
@@ -11,5 +12,6 @@ export {
   BaseTextInput,
   CommonAlertPopup,
   CommonAlertPopupNoButton,
-  InProcessPopup
+  InProcessPopup,
+  UserReducer
 }

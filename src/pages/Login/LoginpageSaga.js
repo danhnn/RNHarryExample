@@ -7,6 +7,10 @@ function* loginWatchWorker(action) {
     yield delay(2000)
     yield put({ type: "LOGIN_SHOW_LOADING", payload: false })
     yield delay(200)
+    yield put({
+      type: "UPDATE_USER_INFO",
+      payload: { token: "12345", username }
+    })
     yield put({ type: "NAV_MAIN" })
   } catch (error) {
     console.log(error)

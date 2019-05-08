@@ -10,7 +10,6 @@ import { Platform, StyleSheet, Text, View, Button } from "react-native"
 import {
   BaseContainer,
   CommonAlertPopup,
-  CommonAlertPopupNoButton,
   InProcessPopup,
   BaseText,
   BaseTextInput
@@ -22,9 +21,9 @@ class RegistrationPage extends BaseContainer {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
+        <BaseText style={styles.welcome}>
           Please provide those information to complete registration process
-        </Text>
+        </BaseText>
 
         <BaseTextInput
           style={styles.inputStyle}
