@@ -6,15 +6,21 @@
 
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { Platform, StyleSheet, Text, View, Button } from "react-native"
-import { BaseContainer } from "@shares"
+import { Platform, StyleSheet, View, Button } from "react-native"
+import { BaseContainer, BaseText, showToast } from "@shares"
 import { colors } from "@styles"
 
 export default class HomePage extends BaseContainer {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Welcome To HomePage</Text>
+        <BaseText>Welcome To HomePage</BaseText>
+        <Button
+          title="Show Toasts"
+          onPress={() => {
+            showToast("Awesome!!!")
+          }}
+        />
       </View>
     )
   }
