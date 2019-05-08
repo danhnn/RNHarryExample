@@ -4,6 +4,15 @@ import { Const } from "@shares"
 function* loginWatchWorker(action) {
   try {
     let { username, password } = action.payload
+
+    if (!username || !password) {
+      yield put({
+        type: Const.SET_ALERT_MESSAGE,
+        payload: "You should fill all fileds!"
+      })
+      return
+    }
+
     yield put({ type: Const.LOGIN_SHOW_LOADING, payload: true })
     yield delay(2000)
     yield put({ type: Const.LOGIN_SHOW_LOADING, payload: false })

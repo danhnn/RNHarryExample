@@ -28,7 +28,7 @@ class LoginPage extends BaseContainer {
   }
 
   render() {
-    const { showLoading } = this.props
+    const { alertMessage, showLoading, closeAlertPopup } = this.props
     return (
       <View style={styles.container}>
         <BaseText style={styles.welcome}>
@@ -69,8 +69,9 @@ class LoginPage extends BaseContainer {
         />
 
         <CommonAlertPopup
-          title="Welcome to React Native Skeleton Project"
-          isShow={false}
+          title={alertMessage}
+          isShow={!!alertMessage}
+          onOkay={closeAlertPopup}
         />
         <InProcessPopup isShow={showLoading} title="Loading..." />
       </View>
@@ -102,6 +103,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state, ownProps) => {
   return {
     showLoading: state.loginReducer.showLoading,
+    alertMessage: state.loginReducer.alertMessage,
     user: state.user
   }
 }
@@ -112,7 +114,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     login: (username, password) =>
       dispatch({ type: Const.LOGIN_ACTION, payload: { username, password } }),
     goToMainPage: () => dispatch({ type: Const.NAV_MAIN }),
-    goToRegistrationPage: () => dispatch({ type: Const.NAV_REGISTRATION })
+    goToRegistrationPage: () => dispatch({ type: Const.NAV_REGISTRATION }),
+    closeAlertPopup: () =>
+      dispatch({ type: Const.SET_ALERT_MESSAGE, payload: null })
   }
 }
 

@@ -46,7 +46,7 @@ export default class CommonAlertPopup extends PureComponent {
 
           <TouchableOpacity
             onPress={() => {
-              this.popupDialog.dismiss()
+              //this.popupDialog.dismiss()
               if (onOkay != null) {
                 onOkay()
               }

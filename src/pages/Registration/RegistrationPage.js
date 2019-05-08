@@ -21,6 +21,7 @@ class RegistrationPage extends BaseContainer {
   state = { username: null, password: null, retypePassword: null }
 
   render() {
+    const { alertMessage, closeAlertPopup, register } = this.props
     return (
       <View style={styles.container}>
         <BaseText style={styles.welcome}>
@@ -59,7 +60,7 @@ class RegistrationPage extends BaseContainer {
         <Button
           title="Register"
           onPress={() => {
-            this.props.register(
+            register(
               this.state.username,
               this.state.password,
               this.state.retypePassword
@@ -67,8 +68,9 @@ class RegistrationPage extends BaseContainer {
           }}
         />
         <CommonAlertPopup
-          title="Welcome to React Native Skeleton Project"
-          isShow={false}
+          title={alertMessage}
+          isShow={!!alertMessage}
+          onOkay={closeAlertPopup}
         />
         <InProcessPopup isShow={this.props.showLoading} title="Loading..." />
       </View>
@@ -107,7 +109,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch({
         type: Const.REGISTER_ACTION,
         payload: { username, password, retypePassword }
-      })
+      }),
+    closeAlertPopup: () =>
+      dispatch({ type: Const.SET_ALERT_MESSAGE, payload: null })
   }
 }
 
