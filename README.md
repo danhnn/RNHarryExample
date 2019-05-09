@@ -8,7 +8,3 @@ react-native run-ios
 
 react-native run-android
 
-### More info:
-
-- Logout button is in Setting Page
-- Show Toast button is in Home Page
